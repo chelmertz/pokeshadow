@@ -105,22 +105,52 @@ const newSubject = () => {
 
     document.querySelector('.letters').innerHTML = '';
     document.querySelector('.alternatives').innerHTML = '';
-    console.log(subject.letters.join('')+"\n"+subject.name);
+    console.log(subject.name);
 
     // render letters.length amount of actual letters in .letters
     for (let i = 0; i < letters.length; i++) {
         const letter = document.createElement('div');
         letter.classList.add('letter');
         letter.innerHTML = ' ';
+        letter.addEventListener('click', (l) => {
+            if (letter.innerHTML === ' ') {
+                return;
+            }
+            const alternative = document.querySelectorAll('.alternatives .letter')[letter.dataset.index];
+            alternative.innerHTML = letter.innerHTML;
+            alternative.style.visibility = '';
+            letter.innerHTML = ' ';
+        });
         document.querySelector('.letters').appendChild(letter);
     }
 
-    // render subject.letters.length amount of available letters in .alternatives
     for (let i = 0; i < subject.letters.length; i++) {
-        const available = document.createElement('div');
-        available.classList.add('letter');
-        available.innerHTML = subject.letters[i];
-        document.querySelector('.alternatives').appendChild(available);
+        const alternative = document.createElement('div');
+        alternative.classList.add('letter');
+        alternative.innerHTML = subject.letters[i];
+        alternative.addEventListener('click', () => {
+            if (alternative.innerHTML === ' ') {
+                return;
+            }
+
+            let didInsert = false;
+            document.querySelectorAll('.letters .letter').forEach((l) => {
+                if (didInsert) {
+                    return;
+                }
+                if (l.innerHTML === ' ') {
+                    l.innerHTML = alternative.innerHTML;
+                    l.dataset.index = i;
+                    didInsert = true;
+                    // TODO check if we failed/succeeded, by checking if index is the last one
+                }
+            });
+
+            if (didInsert) {
+                alternative.style.visibility = 'hidden';
+            }
+        });
+        document.querySelector('.alternatives').appendChild(alternative);
     }
 };
 
