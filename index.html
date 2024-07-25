@@ -85,9 +85,7 @@ function shuffleArray(arr) {
     }
 }
 
-const anyLetter = () => {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-};
+const anyLetter = () => String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 
 const newSubject = () => {
     const svgIndex = Math.floor(Math.random() * Object.keys(svgs).length).toString();
@@ -127,7 +125,6 @@ const newSubject = () => {
 };
 
 newSubject();
-const guess = () => {};
 
 /*
 guessing fsm:
