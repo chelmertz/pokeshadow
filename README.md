@@ -18,10 +18,8 @@ TODO:
     - enlighten
     - blur
     - one correct letter (à la wordle)
-- [ ] "next" button
-- [ ] persist random order + names + images
-- [ ] show overview of finished things
-- [ ] add points, take spent time into consideration
+- [ ] optimize for iPad
+- [ ] add points, persist to localStorage
 - [ ] decorate gui
   - random pokemons in the corners that squiggles a bit, tilted towards center
 - [x] add favicon
