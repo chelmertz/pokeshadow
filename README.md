@@ -25,6 +25,9 @@ TODO:
 - [x] add favicon
 - [ ] deploy to itch or fly or so
 - [ ] rewrite js logic using signals, polyfill is at: https://github.com/tc39/proposal-signals
+- [ ] randomize order and persist it
+  - once finished, restart and bump the level
+    - maybe increase the difficulty (decrease size of pokemon, add timer, make blurry etc. so that we 1) must use coins; 2) feel progress)
 
 Acknowledgments: 
 
