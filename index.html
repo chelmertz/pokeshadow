@@ -15,10 +15,21 @@
             );
             display: flex;
             flex-direction: column;
-            gap: 2vh;
+            gap: 4vh;
             height: 100vh;
             justify-content: center;
             width: 100vw;
+        }
+
+        .treasure {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            gap: 1vh;
+            justify-content: center;
+            img {
+                width: 4vh;
+            }
         }
 
         .subject {
@@ -72,6 +83,9 @@
 
 <body>
 <main>
+<div class="treasure">
+<img src="/treasure-chest-svgrepo-com.svg" alt="treasure"/> <span class="points"></span>
+</div>
 <img class="subject" src="" alt="a random pokémon for you to catch"/>
 <div class="letters"></div>
 <div class="alternatives"></div>
@@ -103,9 +117,19 @@ function shuffleArray(arr) {
 
 const anyLetter = () => String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 
+const addPoints = (pts) => {
+    let points = parseInt(localStorage.getItem('points') || 0, 10);
+    points += pts;
+    localStorage.setItem('points', points);
+    document.querySelector('.points').textContent = points;
+};
+// persist initial value
+addPoints(0);
+
 const success = () => {
     document.querySelector('.subject').classList.add('success');
     document.querySelector('.letters').classList.add('success');
+    addPoints(10);
     setTimeout(() => {
         document.querySelector('.subject').classList.remove('success');
         document.querySelector('.letters').classList.remove('success');

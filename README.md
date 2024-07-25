@@ -33,6 +33,7 @@ Acknowledgments:
 
 - SVGs from https://github.com/jnovack/pokemon-svg
 - Favicon via https://realfavicongenerator.net
+- Treasure chest icon via https://www.svgrepo.com/svg/335809/treasure-chest
 - Pokémon names and numbers from https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number - fetched using the js below in a dev console
 
 ```javascript
