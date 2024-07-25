@@ -33,7 +33,7 @@
 
 <body>
 <main>
-<img class="subject" src="/svg/201-e.svg" alt="a random pokémon for you to catch"/>
+<img class="subject" src="" alt="a random pokémon for you to catch"/>
 <div class="letters"></div>
 <div class="letter-alternatives"></div>
 </main>
@@ -44,9 +44,11 @@ const subject = {
     name: '',
     letters: [],
 };
-subject.el.addEventListener('click', () => {
+
+const showSubject = () => {
     subject.el.style.filter = 'brightness(100%)';
-});
+}
+subject.el.addEventListener('click', showSubject);
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm
 from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
