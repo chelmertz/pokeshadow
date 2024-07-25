@@ -31,7 +31,7 @@ Acknowledgments:
 
 - SVGs from https://github.com/jnovack/pokemon-svg
 - Favicon via https://realfavicongenerator.net
-- Pokémon names and numbers from https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number
+- Pokémon names and numbers from https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number - fetched using the js below in a dev console
 
 ```javascript
 document.querySelectorAll('.roundy').forEach(r => {
