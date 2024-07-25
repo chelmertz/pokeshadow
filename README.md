@@ -21,6 +21,9 @@ b[tds[0].textContent.replace(/^#0*/g, '')] = tds[2].textContent;
 ```
 
 - [ ] allow guessing correct/wrong
+- [ ] show subject when correct
+  - would be cool to enlargen and dissolve while moving to next level
+  - or just make the corner pokemon nudge a bit, and maybe add some flair/confetti
 - [ ] think about hints (enlighten silhouette after a while?) blur(10px) or brightness(15%) -> 25% looks cool
 - [ ] "next" button
 - [ ] persist random order + names + images
