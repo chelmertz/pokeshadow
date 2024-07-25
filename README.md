@@ -1,4 +1,4 @@
-# pokeshadow
+# Pokeshadow
 
 Mimics some game that exists for iPad (that has ads, is a native app etc.), aimed at children.
 
@@ -13,6 +13,10 @@ TODO:
   - would be cool to enlargen and dissolve while moving to next level
   - or just make the corner pokemon nudge a bit, and maybe add some flair/confetti
 - [ ] think about hints (enlighten silhouette after a while?) blur(10px) or brightness(15%) -> 25% looks cool
+  - maybe different tokens
+    - enlighten
+    - blur
+    - one correct letter (à la wordle)
 - [ ] "next" button
 - [ ] persist random order + names + images
 - [ ] show overview of finished things
