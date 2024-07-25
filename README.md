@@ -9,8 +9,8 @@ TODO:
 - [x] add random letters
 - [x] render letters forming name
 - [x] allow guessing correct/wrong
-- [ ] take action on correct/wrong
-- [ ] show subject when correct
+- [x] take action on correct/wrong
+- [x] show subject when correct
   - would be cool to enlargen and dissolve while moving to next level
   - or just make the corner pokemon nudge a bit, and maybe add some flair/confetti
 - [ ] think about hints (enlighten silhouette after a while?) blur(10px) or brightness(15%) -> 25% looks cool

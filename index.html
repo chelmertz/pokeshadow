@@ -23,7 +23,12 @@
 
         .subject {
             filter: brightness(0%);
+            transition: all 0.5s linear;
             width: 20vw;
+
+            &.success {
+                filter: brightness(100%);
+            }
         }
 
         .letters, .alternatives {
@@ -93,9 +98,13 @@ function shuffleArray(arr) {
 const anyLetter = () => String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 
 const success = () => {
+    document.querySelector('.subject').classList.add('success');
+    setTimeout(() => {
+        document.querySelector('.subject').classList.remove('success');
+    }, 2500);
     setTimeout(() => {
         newSubject();
-    }, 1000);
+    }, 3000);
 };
 const failure = () => {
     document.querySelector('.letters').classList.add('failure');
