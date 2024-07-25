@@ -33,6 +33,12 @@
             flex-wrap: wrap;
             gap: 1vw;
             max-width: 50vw;
+
+            &.failure {
+                .letter {
+                    border-color: #f00;
+                }
+            }
         }
 
         .letter {
@@ -86,6 +92,11 @@ function shuffleArray(arr) {
 
 const anyLetter = () => String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 
+const success = () => {};
+const failure = () => {
+    document.querySelector('.letters').classList.add('failure');
+};
+
 const newSubject = () => {
     const svgIndex = Math.floor(Math.random() * Object.keys(svgs).length).toString();
     const filename = svgs[svgIndex];
@@ -115,6 +126,7 @@ const newSubject = () => {
             if (letter.innerHTML === ' ') {
                 return;
             }
+            document.querySelector('.letters').classList.remove('failure');
             const alternative = document.querySelectorAll('.alternatives .letter')[letter.dataset.index];
             alternative.innerHTML = letter.innerHTML;
             alternative.style.visibility = '';
@@ -143,11 +155,9 @@ const newSubject = () => {
                     didInsert = true;
                     if (li == letters.length-1) {
                         if (currentGuess === subject.name) {
-                            // success
-                            console.log('success');
+                            success();
                         } else {
-                            // failure
-                            console.log('fail');
+                            failure();
                         }
                     }
                 } else {
