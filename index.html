@@ -90,13 +90,13 @@
 <body>
 <main>
 <div class="treasure">
-<img src="/treasure-chest-svgrepo-com.svg" alt="treasure"/> <span class="points"></span>
+<img src="treasure-chest-svgrepo-com.svg" alt="treasure"/> <span class="points"></span>
 </div>
 <img class="subject" src="" alt="a random pokémon for you to catch"/>
 <div class="letters"></div>
 <div class="alternatives"></div>
 </main>
-<script type="text/javascript" src="/data.js"></script>
+<script type="text/javascript" src="data.js"></script>
 <script type="text/javascript">
 const subject = {
     el: document.querySelector('.subject'),
@@ -152,7 +152,7 @@ const newSubject = () => {
     const svgIndex = Math.floor(Math.random() * Object.keys(svgs).length).toString();
     const filename = svgs[svgIndex];
     const pokemonNumber = filename.replace(/\D+/g, '');
-    subject.el.src = `/svg/${filename}`;
+    subject.el.src = `svg/${filename}`;
     subject.name = pokemon[pokemonNumber].toUpperCase();
     subject.letters = [];
     let letters = subject.name.split('');
