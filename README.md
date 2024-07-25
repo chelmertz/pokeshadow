@@ -1,25 +1,13 @@
-svg from https://github.com/jnovack/pokemon-svg
+# pokeshadow
+
+Mimics some game that exists for iPad (that has ads, is a native app etc.), aimed at children.
 
 TODO:
 - [x] render svg
 - [x] turn image into silhouette
   - `filter: brightness(0%);`
 - [x] add random letters
-- [ ] render letters forming name
-  - getting names by numbers from https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number
-
-```javascript
-document.querySelectorAll('.roundy').forEach(r => {
-r.querySelectorAll('tr').forEach((t) => {
-const tds = t.querySelectorAll('td');
-if (tds.length === 0 || !tds[0].textContent.startsWith('#')) { return; }
-b = b || {};
-b[tds[0].textContent.replace(/^#0*/g, '')] = tds[2].textContent;
-})
-});
-// then, copy b from the dev console to index.html
-```
-
+- [x] render letters forming name
 - [ ] allow guessing correct/wrong
 - [ ] show subject when correct
   - would be cool to enlargen and dissolve while moving to next level
@@ -34,3 +22,21 @@ b[tds[0].textContent.replace(/^#0*/g, '')] = tds[2].textContent;
 - [x] add favicon
 - [ ] deploy to itch or fly or so
 - [ ] rewrite js logic using signals, polyfill is at: https://github.com/tc39/proposal-signals
+
+Acknowledgments: 
+
+- SVGs from https://github.com/jnovack/pokemon-svg
+- Favicon via https://realfavicongenerator.net
+- Pokémon names and numbers from https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number
+
+```javascript
+document.querySelectorAll('.roundy').forEach(r => {
+r.querySelectorAll('tr').forEach((t) => {
+const tds = t.querySelectorAll('td');
+if (tds.length === 0 || !tds[0].textContent.startsWith('#')) { return; }
+b = b || {};
+b[tds[0].textContent.replace(/^#0*/g, '')] = tds[2].textContent;
+})
+});
+// then, copy b from the dev console to index.html
+```
