@@ -15,18 +15,41 @@
             );
             display: flex;
             flex-direction: column;
+            gap: 2vh;
             height: 100vh;
             justify-content: center;
             width: 100vw;
         }
 
         .subject {
-            width: 20vw;
             filter: brightness(0%);
+            width: 20vw;
         }
 
-        .letters {
+        .letters, .alternatives {
+            display: flex;
             flex-direction: row;
+            /* flex in two rows with a max width of 50vw, with even space between items, except the last item which should leave space for the next row */
+            flex-wrap: wrap;
+            gap: 1vw;
+            max-width: 50vw;
+            justify-content: space-between;
+        }
+
+        .letter {
+            align-items: center;
+            background: #fff;
+            border: 3px solid #000;
+            border-radius: 10px;
+            color: goldenrod;
+            cursor: pointer;
+            display: flex;
+            font-size: 24px;
+            font-weight: bold;
+            height: 4vh;
+            justify-content: center;
+            user-select: none;
+            width: 4vw;
         }
     </style>
 </head>
@@ -35,7 +58,7 @@
 <main>
 <img class="subject" src="" alt="a random pokémon for you to catch"/>
 <div class="letters"></div>
-<div class="letter-alternatives"></div>
+<div class="alternatives"></div>
 </main>
 <script type="text/javascript" src="/data.js"></script>
 <script type="text/javascript">
@@ -75,7 +98,7 @@ const newSubject = () => {
     subject.letters = [];
     let letters = subject.name.split('');
     shuffleArray(letters);
-    subject.letters = letters;
+    subject.letters = [...letters];
     const lettersToAdd = letters.length % 2 === 0 ? 2 : 3;
     // fill up a bit to make it harder to guess
     for (let i = 0; i < lettersToAdd; i++) {
@@ -83,11 +106,39 @@ const newSubject = () => {
     }
 
     document.querySelector('.letters').innerHTML = '';
+    document.querySelector('.alternatives').innerHTML = '';
     console.log(subject.letters.join('')+"\n"+subject.name);
+
+    // render letters.length amount of actual letters in .letters
+    for (let i = 0; i < letters.length; i++) {
+        const letter = document.createElement('div');
+        letter.classList.add('letter');
+        letter.innerHTML = ' ';
+        document.querySelector('.letters').appendChild(letter);
+    }
+
+    // render subject.letters.length amount of available letters in .alternatives
+    for (let i = 0; i < subject.letters.length; i++) {
+        const available = document.createElement('div');
+        available.classList.add('letter');
+        available.innerHTML = subject.letters[i];
+        document.querySelector('.alternatives').appendChild(available);
+    }
 };
 
 newSubject();
 const guess = () => {};
+
+/*
+guessing fsm:
+
+space left in guess -> enter guessed letter
+enter guessed letter -> remove/deactivate available letter
+enter guessed letter -> render letter in left-most available spot
+no space left in guess -> indicate success/failure
+remove guessed letter -> activate available letter
+remove guessed letter -> clear spot
+*/
 
 </script>
 </body>
