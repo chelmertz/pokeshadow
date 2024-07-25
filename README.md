@@ -18,6 +18,8 @@ TODO:
     - enlighten
     - blur
     - one correct letter (à la wordle)
+    - a permanent token (or a level) that immediately highlights a correct guess (or accessed via consumable, one-time or one-time-per-subject)
+    - clicking treasure could bring up store
 - [ ] optimize for iPad
 - [ ] add points, persist to localStorage
 - [ ] decorate gui
