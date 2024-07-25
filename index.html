@@ -33,7 +33,6 @@
             flex-wrap: wrap;
             gap: 1vw;
             max-width: 50vw;
-            justify-content: space-between;
         }
 
         .letter {
@@ -134,15 +133,25 @@ const newSubject = () => {
             }
 
             let didInsert = false;
-            document.querySelectorAll('.letters .letter').forEach((l) => {
-                if (didInsert) {
-                    return;
-                }
-                if (l.innerHTML === ' ') {
+            let currentGuess = '';
+            const letters = document.querySelectorAll('.letters .letter');
+            letters.forEach((l, li) => {
+                if (!didInsert && l.innerHTML === ' ') {
                     l.innerHTML = alternative.innerHTML;
+                    currentGuess += l.innerHTML;
                     l.dataset.index = i;
                     didInsert = true;
-                    // TODO check if we failed/succeeded, by checking if index is the last one
+                    if (li == letters.length-1) {
+                        if (currentGuess === subject.name) {
+                            // success
+                            console.log('success');
+                        } else {
+                            // failure
+                            console.log('fail');
+                        }
+                    }
+                } else {
+                    currentGuess += l.innerHTML;
                 }
             });
 
