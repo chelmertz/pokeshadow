@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Pokeshadow</title>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            align-items: center;
+            background: repeating-linear-gradient(
+                45deg, #f6ba52, #f6ba52 10px, #ffd180 10px, #ffd180 20px
+            );
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: center;
+            width: 100vw;
+        }
+
+        .subject {
+            width: 20vw;
+            filter: brightness(0%);
+        }
+
+        .letters {
+            flex-direction: row;
+        }
+    </style>
+</head>
+
+<body>
+<main>
+<img class="subject" src="/svg/201-e.svg" alt="a random pokémon for you to catch"/>
+<div class="letters"></div>
+<div class="letter-alternatives"></div>
+</main>
+<script type="text/javascript" src="/data.js"></script>
+<script type="text/javascript">
+const subject = {
+    el: document.querySelector('.subject'),
+    name: '',
+    letters: [],
+};
+subject.el.addEventListener('click', () => {
+    subject.el.style.filter = 'brightness(100%)';
+});
+
+/* Randomize array in-place using Durstenfeld shuffle algorithm
+from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+*/
+function shuffleArray(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
+
+const anyLetter = () => {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+};
+
+const newSubject = () => {
+    const svgIndex = Math.floor(Math.random() * Object.keys(svgs).length).toString();
+    const filename = svgs[svgIndex];
+    const pokemonNumber = filename.replace(/\D+/g, '');
+    subject.el.src = `/svg/${filename}`;
+    subject.name = pokemon[pokemonNumber].toUpperCase();
+    subject.letters = [];
+    let letters = subject.name.split('');
+    shuffleArray(letters);
+    subject.letters = letters;
+    const lettersToAdd = letters.length % 2 === 0 ? 2 : 3;
+    // fill up a bit to make it harder to guess
+    for (let i = 0; i < lettersToAdd; i++) {
+        subject.letters.push(anyLetter());
+    }
+
+    document.querySelector('.letters').innerHTML = '';
+    console.log(subject.letters.join('')+"\n"+subject.name);
+};
+
+newSubject();
+const guess = () => {};
+
+</script>
+</body>
+</html>
