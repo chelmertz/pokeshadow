@@ -25,7 +25,8 @@ TODO:
 - [ ] decorate gui
   - random pokemons in the corners that squiggles a bit, tilted towards center
 - [x] add favicon
-- [ ] deploy to itch or fly or so
+- [x] deploy to itch or fly or so
+- [ ] deploy to itch with a github workflow
 - [ ] rewrite js logic using signals, polyfill is at: https://github.com/tc39/proposal-signals
 - [ ] randomize order and persist it
   - once finished, restart and bump the level
