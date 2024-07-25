@@ -92,7 +92,11 @@ function shuffleArray(arr) {
 
 const anyLetter = () => String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 
-const success = () => {};
+const success = () => {
+    setTimeout(() => {
+        newSubject();
+    }, 1000);
+};
 const failure = () => {
     document.querySelector('.letters').classList.add('failure');
 };
