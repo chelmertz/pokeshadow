@@ -45,6 +45,11 @@
                     border-color: #f00;
                 }
             }
+            &.success {
+                .letter {
+                    border-color: #0f0;
+                }
+            }
         }
 
         .letter {
@@ -100,8 +105,10 @@ const anyLetter = () => String.fromCharCode(Math.floor(Math.random() * 26) + 65)
 
 const success = () => {
     document.querySelector('.subject').classList.add('success');
+    document.querySelector('.letters').classList.add('success');
     setTimeout(() => {
         document.querySelector('.subject').classList.remove('success');
+        document.querySelector('.letters').classList.remove('success');
     }, 2500);
     setTimeout(() => {
         newSubject();
