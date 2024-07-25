@@ -28,6 +28,6 @@ b[tds[0].textContent.replace(/^#0*/g, '')] = tds[2].textContent;
 - [ ] add points, take spent time into consideration
 - [ ] decorate gui
   - random pokemons in the corners that squiggles a bit, tilted towards center
-- [ ] add favicon
+- [x] add favicon
 - [ ] deploy to itch or fly or so
 - [ ] rewrite js logic using signals, polyfill is at: https://github.com/tc39/proposal-signals
