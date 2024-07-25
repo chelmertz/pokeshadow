@@ -21,12 +21,12 @@ TODO:
     - a permanent token (or a level) that immediately highlights a correct guess (or accessed via consumable, one-time or one-time-per-subject)
     - clicking treasure could bring up store
 - [ ] optimize for iPad
-- [ ] add points, persist to localStorage
+- [x] add points, persist to localStorage
 - [ ] decorate gui
   - random pokemons in the corners that squiggles a bit, tilted towards center
 - [x] add favicon
 - [x] deploy to itch or fly or so
-- [ ] deploy to itch with a github workflow
+- [x] deploy to itch with a github workflow
 - [ ] rewrite js logic using signals, polyfill is at: https://github.com/tc39/proposal-signals
 - [ ] randomize order and persist it
   - once finished, restart and bump the level
